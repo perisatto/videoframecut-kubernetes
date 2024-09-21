@@ -13,11 +13,17 @@ provider "aws" {
   region = "us-east-1"
 }
 
+
+variable "ROLE_ARN" {
+  type = string
+  sensitive = true
+}
+
 #create cluster
 resource "aws_eks_cluster" "my_cluster" {
   name     = "menuguru"
   version  = "1.29"
-  role_arn = "arn:aws:iam::774305030127:role/LabRole"
+  role_arn = "${var.ROLE_ARN}"
 
   vpc_config {
     subnet_ids = [
@@ -34,7 +40,7 @@ resource "aws_eks_cluster" "my_cluster" {
 resource "aws_eks_node_group" "node_group_1" {
   cluster_name    = aws_eks_cluster.my_cluster.name
   node_group_name = "node-group-1"
-  node_role_arn   = "arn:aws:iam::774305030127:role/LabRole"
+  node_role_arn   = "${var.ROLE_ARN}"
   subnet_ids      = [
     aws_subnet.private_subnet_1.id,
     aws_subnet.private_subnet_2.id
@@ -51,7 +57,7 @@ resource "aws_eks_node_group" "node_group_1" {
 resource "aws_eks_node_group" "node_group_2" {
   cluster_name    = aws_eks_cluster.my_cluster.name
   node_group_name = "node-group-2"
-  node_role_arn   = "arn:aws:iam::774305030127:role/LabRole"
+  node_role_arn   = "${var.ROLE_ARN}"
   subnet_ids      = [
     aws_subnet.private_subnet_1.id,
     aws_subnet.private_subnet_2.id
