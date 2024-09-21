@@ -33,6 +33,8 @@ jobs:
       - name: Create Plan Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
         id: plan-run
+        env:
+          TF_VAR_DB_USER: '"${{secrets.TF_VAR_ROLE_ARN}}"'         
         with:
           workspace: ${{ env.TF_WORKSPACE }}
           configuration_version: ${{ steps.plan-upload.outputs.configuration_version_id }}
