@@ -1,7 +1,7 @@
 resource "aws_cognito_user_pool" "main" {
   name = "menuguru-auth"
   
-  alias_attributes  = ["email"]
+  username_attributes  = ["email"]
   
   password_policy {
   	minimum_length   = 11
