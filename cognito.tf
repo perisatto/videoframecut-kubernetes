@@ -1,5 +1,5 @@
 resource "aws_cognito_user_pool" "main" {
-  name = "menuguru-auth"
+  name = "vfc-auth"
   
   username_attributes  = ["email"]
   
@@ -44,12 +44,12 @@ resource "aws_cognito_user_pool" "main" {
 }
 
 resource "aws_cognito_user_pool_domain" "main" {
-  domain       = "menuguru-auth"
+  domain       = "vfc-auth"
   user_pool_id = aws_cognito_user_pool.main.id
 }
 
 resource "aws_cognito_user_pool_client" "client" {
-  name = "menuguru-app"
+  name = "vfc-app"
 
   user_pool_id = aws_cognito_user_pool.main.id
   
