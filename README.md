@@ -1,4 +1,4 @@
-# MenuGuru
+# VideoFrameCut
 
 Este repositorio contem os scripts de Terraform para o Cluster EKS da aplicação Video Frame Cut, que implementa um sistema ficticio de corte de videos como parte do trabalho de avaliação do curso de Pos-Graduação em Software Architecture da FIAP.
 
