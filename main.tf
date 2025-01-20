@@ -21,7 +21,7 @@ variable "ROLE_ARN" {
 
 #create cluster
 resource "aws_eks_cluster" "my_cluster" {
-  name     = "menuguru"
+  name     = "vfc-cluster"
   version  = "1.29"
   role_arn = "${var.ROLE_ARN}"
 
