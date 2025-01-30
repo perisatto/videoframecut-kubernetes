@@ -14,7 +14,7 @@ resource "aws_mq_broker" "broker" {
   engine_version               = "3.13"
   auto_minor_version_upgrade   = true
   deployment_mode              = "SINGLE_INSTANCE"
-  subnet_ids                   = [aws_subnet.public_subnet_1.id, aws_subnet.public_subnet_2.id]
+  subnet_ids                   = [aws_subnet.public_subnet_1.id]
   host_instance_type           = "mq.t3.micro"
   publicly_accessible          = true
   user {
