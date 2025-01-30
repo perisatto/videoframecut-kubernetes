@@ -1,3 +1,13 @@
+variable "RABBITMQ_USER" {
+  type = string
+  sensitive = true
+}
+
+variable "RABBITMQ_PASSWORD" {
+  type = string
+  sensitive = true
+}
+
 resource "aws_mq_broker" "broker" {
   broker_name                  = "vfc_mq_broker"
   engine_type                  = "RabbitMQ"
